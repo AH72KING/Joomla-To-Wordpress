@@ -20,17 +20,22 @@ if ( $users ) {
         $user_metadata_capabilities = array(
             'user_id'    => $user->id,
             'meta_key'   => 'wp_capabilities',
-            'meta_value' => 'a:1:{s:13:"administrator";s:1:"1";}'  // change administrator if you want to
+            'meta_value' => 'a:1:{s:10:"subscriber";b:1;}'  // change subscriber to something else if you want to
+        );
+        $user_metadata_joomlapass = array(
+            'user_id'    => $user->id,
+            'meta_key'   => 'joomlapass',
+            'meta_value' => $user->password
         );
         $user_metadata_user_level = array(
             'user_id'    => $user->id,
             'meta_key'   => 'wp_user_level',
-            'meta_value' => '10' // change wp_user_level if you want to
+            'meta_value' => '0' // change wp_user_level if you want to
         );
 
         $wpdb->insert(''. WPDP_PREFIX . 'users', $user_data);
-        $wpdb->insert(''. WPDP_PREFIX . 'usermeta', $user_metadata_capabilities);
-        $wpdb->insert(''. WPDP_PREFIX . 'usermeta', $user_metadata_user_level);
+        $wpdb->insert(''. WPDP_PREFIX . 'usermeta', $user_metadata_joomlapass);
+//        $wpdb->insert(''. WPDP_PREFIX . 'usermeta', $user_metadata_user_level);
 
         //In Simple SQL
         /*

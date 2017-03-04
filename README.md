@@ -7,6 +7,11 @@ Joomla To Wordpress PHP Script
 4. Type in Browser http://www.site-url-wordpress-dir/jwp/index.php.
 5. Click links one by one for best and correct results
 
+# Users
+Once users are imported, their Joomla password hash will be stored in the `joomlapass`
+field in `wp_usermeta`. Then, use [this plugin](https://github.com/asmartin/joomla-to-wordpress-migrated-users-authentication-plugin) to automatically check a user's password when he/she
+logs in and if it matches the Joomla hash, insert the password in the Wordpress format (thus completing the conversion).
+
 # Notes
 * Field in Joomla and Wordpress Can be change from time to time so you have to replace them as needed
 * In wp-config.php on debug mode you will see any error that script is facing.
